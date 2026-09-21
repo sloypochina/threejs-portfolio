@@ -1,41 +1,70 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systems & Infrastructure Engineer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liminal Portfolio</title>
+  
+  <!-- Подключаем стили -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Подключаем пиксельный ретро-шрифт VT323 из Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <!-- IMPORTMAP: Позволяет использовать Three.js и GSAP прямо в браузерном JS без npm -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      }
+    }
+  </script>
 </head>
 <body>
-    <div id="canvas-container"></div>
+
+  <!-- 3D Холст (Canvas), который всегда висит на заднем фоне -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Кнопка включения атмосфера-звука -->
+  <button id="audio-btn" class="retro-btn">[ AUDIO: OFF ]</button>
+
+  <!-- Оболочка для интерфейса (текст и кнопки над 3D) -->
+  <div class="ui-container">
     
-    <main class="ui-layer">
-        <header class="hero-content">
-            <h1 class="title">SYSTEMS & DEVOPS ENGINEER</h1>
-            <p class="subtitle">Инфраструктурные решения | Сетевая архитектура | Автоматизация</p>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>Системы функционируют в штатном режиме</span>
-            </div>
-        </header>
+    <!-- СТРАНИЦА 1: ГЛАВНАЯ -->
+    <section id="page-home" class="page active">
+      <span class="tag">// LIMINAL_SPACE_ARCHIVE</span>
+      <h1 class="glitch-title">NOSTALGIA.SYS</h1>
+      <p class="description">Разработка интерфейсов и 3D-экспериментов на стыке одиночества, атмосферы Joji и тишины Minecraft.</p>
+      
+      <div class="nav-buttons">
+        <button id="go-projects-btn" class="retro-btn">СМОТРЕТЬ ПРОЕКТЫ -></button>
+      </div>
+    </section>
 
-        <section class="cards-grid">
-            <div class="card">
-                <h3>Сетевые протоколы</h3>
-                <p>Проектирование и отладка VPN-протоколов, маршрутизация в Cisco Packet Tracer, туннелирование трафика.</p>
-            </div>
-            <div class="card">
-                <h3>Автоматизация</h3>
-                <p>Разработка ботов, интеграция API, сценарии управления конфигурацией и развертывания сервисов.</p>
-            </div>
-            <div class="card">
-                <h3>Инфраструктура</h3>
-                <p>Контейнеризация приложений, виртуализация, проектирование отказоустойчивых системных узлов.</p>
-            </div>
-        </section>
-    </main>
+    <!-- СТРАНИЦА 2: ПРОЕКТЫ -->
+    <section id="page-projects" class="page hidden">
+      <button id="go-home-btn" class="retro-btn back-btn"><- НАЗАД</button>
+      <h2>ИЗБРАННЫЕ РАБОТЫ</h2>
+      
+      <div class="projects-grid">
+        <article class="project-card">
+          <h3>01. VOID_ENGINE</h3>
+          <p>3D-генератор лиминальных пространств на Three.js.</p>
+        </article>
+        <article class="project-card">
+          <h3>02. C418_VISUALIZER</h3>
+          <p>Интерактивный эмбиент-визуализатор с кастомным туманом.</p>
+        </article>
+      </div>
+    </section>
 
-    <script src="app.js"></script>
+  </div>
+
+  <!-- Подключаем основной скрипт как модуль -->
+  <script type="module" src="app.js"></script>
 </body>
 </html>

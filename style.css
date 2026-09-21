@@ -1,4 +1,3 @@
-/* 1. БАЗОВЫЕ НАСТРОЙКИ СБРОСА */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,141 +7,137 @@
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* Отключаем обычный скроллбар, так как у нас 3D-переходы */
-  background-color: #0a0c12; /* Сумеречный темно-синий фон */
+  overflow: hidden;
+  background-color: #1a0408;
   color: #c2c8d6;
   font-family: 'VT323', monospace;
   user-select: none;
 }
 
-/* 2. 3D ХОЛСТ НА ВЕСЬ ЭКРАН */
+/* Эффект зернистости (Аналоговая плёнка VHS) */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.25;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* 3D Canvas */
 #bg-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1; /* Фон под текстом */
+  z-index: 1;
   outline: none;
 }
 
-/* 3. КНОПКА ЗВУКА В УГЛУ */
-#audio-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-}
-
-/* 4. КОНТЕЙНЕР ДЛЯ ТЕКСТА И КНОПОК */
 .ui-container {
   position: relative;
   z-index: 10;
   width: 100%;
   height: 100%;
   padding: 4rem;
-  pointer-events: none; /* Клики пролетают сквозь пустые места на 3D-сцену */
-}
-
-/* 5. УПРАВЛЕНИЕ СТРАНИЦАМИ И ИХ АНИМАЦИЕЙ */
-.page {
-  pointer-events: auto; /* Клики по самому тексту и кнопкам работают */
-  max-width: 600px;
-  position: absolute;
-  top: 25%;
-  left: 8%;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-/* Скрытая страница плавно уходит вниз и исчезает */
-.page.hidden {
-  opacity: 0;
-  transform: translateY(20px);
   pointer-events: none;
 }
 
-/* Активная страница видима */
-.page.active {
-  opacity: 1;
-  transform: translateY(0);
+.page {
+  max-width: 550px;
+  pointer-events: auto;
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* 6. РЕТРО ТИПОГРАФИКА */
+.page.hidden {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Тексты и заголовки */
 .tag {
-  color: #ff9e3b;
-  font-size: 1.3rem;
+  color: #ff3344;
+  font-size: 1.2rem;
   letter-spacing: 2px;
 }
 
 .glitch-title {
-  font-size: 4.5rem;
+  font-size: 5rem;
   color: #ffffff;
-  margin: 0.5rem 0;
   letter-spacing: 4px;
-  text-shadow: 2px 2px 0px #ff0055, -2px -2px 0px #00ffff;
+  text-shadow: 3px 3px 0px #ff0033, -3px -3px 0px #330000;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 0px #ff0033;
 }
 
 .description {
   font-size: 1.5rem;
   line-height: 1.3;
   margin-bottom: 2rem;
-  color: #8a93a8;
+  color: #b8a0a4;
 }
 
-/* 7. РЕТРО КНОПКИ (Joji / VHS стилистика) */
+/* Кнопки в багровом стиле */
 .retro-btn {
-  background: rgba(10, 12, 18, 0.7);
-  border: 1px solid rgba(194, 200, 214, 0.4);
-  color: #c2c8d6;
-  padding: 12px 28px;
+  background: rgba(26, 4, 8, 0.75);
+  border: 1px solid rgba(255, 51, 68, 0.4);
+  color: #e2c8cc;
+  padding: 12px 24px;
   font-family: 'VT323', monospace;
   font-size: 1.4rem;
   cursor: pointer;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
   transition: all 0.3s ease;
-  display: inline-block;
 }
 
 .retro-btn:hover {
-  background: rgba(255, 158, 59, 0.15);
-  border-color: #ff9e3b;
-  color: #ff9e3b;
-  box-shadow: 0 0 20px rgba(255, 158, 59, 0.3);
+  background: rgba(255, 0, 51, 0.2);
+  border-color: #ff0033;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
   transform: translateY(-2px);
 }
 
 .back-btn {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-/* 8. СЕТКА ПРОЕКТОВ (ВТОРАЯ СТРАНИЦА) */
-.projects-grid {
+.projects-list {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 1rem;
+  gap: 1.5rem;
 }
 
 .project-card {
-  background: rgba(15, 18, 28, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.2rem;
-  backdrop-filter: blur(8px);
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  background: rgba(15, 2, 5, 0.7);
+  border: 1px solid rgba(255, 0, 51, 0.15);
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s ease;
 }
 
 .project-card:hover {
-  border-color: #ff9e3b;
-  transform: translateX(10px);
+  border-color: #ff0033;
 }
 
 .project-card h3 {
   font-size: 1.8rem;
-  color: #ffffff;
-  margin-bottom: 0.3rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
 }
 
 .project-card p {
   font-size: 1.2rem;
-  color: #8a93a8;
+  color: #968084;
 }

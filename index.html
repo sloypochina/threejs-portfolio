@@ -3,68 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Liminal Portfolio</title>
-  
-  <!-- Подключаем стили -->
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- Подключаем пиксельный ретро-шрифт VT323 из Google Fonts -->
+  <title>Liminal Space | Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-  <!-- IMPORTMAP: Позволяет использовать Three.js и GSAP прямо в браузерном JS без npm -->
+  <link rel="stylesheet" href="style.css">
+
   <script type="importmap">
     {
       "imports": {
         "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "gsap": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js"
       }
     }
   </script>
 </head>
 <body>
 
-  <!-- 3D Холст (Canvas), который всегда висит на заднем фоне -->
   <canvas id="bg-canvas"></canvas>
 
-  <!-- Кнопка включения атмосфера-звука -->
-  <button id="audio-btn" class="retro-btn">[ AUDIO: OFF ]</button>
-
-  <!-- Оболочка для интерфейса (текст и кнопки над 3D) -->
   <div class="ui-container">
     
-    <!-- СТРАНИЦА 1: ГЛАВНАЯ -->
-    <section id="page-home" class="page active">
-      <span class="tag">// LIMINAL_SPACE_ARCHIVE</span>
+    <!-- СТРАНИЦА 1 -->
+    <section id="page-home" class="page">
+      <div class="tag">// LIMINAL_SPACE_ARCHIVE</div>
       <h1 class="glitch-title">NOSTALGIA.SYS</h1>
-      <p class="description">Разработка интерфейсов и 3D-экспериментов на стыке одиночества, атмосферы Joji и тишины Minecraft.</p>
+      <p class="description">
+        Разработка интерфейсов и 3D-экспериментов на стыке одиночества, атмосферы Joji и тишины Minecraft.
+      </p>
       
       <div class="nav-buttons">
-        <button id="go-projects-btn" class="retro-btn">СМОТРЕТЬ ПРОЕКТЫ -></button>
+        <button id="btn-to-projects" class="retro-btn">СМОТРЕТЬ ПРОЕКТЫ -></button>
       </div>
     </section>
 
-    <!-- СТРАНИЦА 2: ПРОЕКТЫ -->
+    <!-- СТРАНИЦА 2 -->
     <section id="page-projects" class="page hidden">
-      <button id="go-home-btn" class="retro-btn back-btn"><- НАЗАД</button>
-      <h2>ИЗБРАННЫЕ РАБОТЫ</h2>
+      <button id="btn-to-home" class="retro-btn back-btn"><- НАЗАД В ТУМАН</button>
+      <h2 class="section-title">ИЗБРАННЫЕ РАБОТЫ</h2>
       
-      <div class="projects-grid">
+      <div class="projects-list">
         <article class="project-card">
-          <h3>01. VOID_ENGINE</h3>
-          <p>3D-генератор лиминальных пространств на Three.js.</p>
+          <h3>01. THREEJS_PORTFOLIO</h3>
+          <p>Экспериментальный 3D-сайт на Three.js с атмосферой оцифрованного одиночества.</p>
         </article>
+        
         <article class="project-card">
-          <h3>02. C418_VISUALIZER</h3>
-          <p>Интерактивный эмбиент-визуализатор с кастомным туманом.</p>
+          <h3>02. VOID_EXPERIMENT</h3>
+          <p>Генерация холмов и тумана с динамическим освещением и частицами пепла.</p>
         </article>
       </div>
     </section>
 
   </div>
 
-  <!-- Подключаем основной скрипт как модуль -->
   <script type="module" src="app.js"></script>
 </body>
 </html>

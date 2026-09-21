@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SLOYPOCHINA</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Three.js и модули постобработки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
 </head>
 <body>
 
-    <!-- Ваш интерфейс поверх 3D сцены -->
+    <!-- Интерфейс поверх 3D кадра -->
     <div class="ui-container">
         <div class="archive-tag">// PISS_IN_THE_WIND_ARCHIVE</div>
         <h1 class="title">SLOYPOCHINA</h1>
         <p class="description">
             Цифровой шум, алый туман и отчуждение.<br>
-            Атмосфера Joji & Minecraft.
+            Кинематографичная атмосфера и нуарный эмбиент.
         </p>
-        <button id="cameraBtn" class="btn">СМОТРЕТЬ ПРОЕКТЫ -></button>
+        <button id="cameraBtn" class="btn">РАКУРС ОБЛОЖКИ -></button>
     </div>
 
-    <!-- Подключаем основной скрипт -->
-    <script type="module" src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

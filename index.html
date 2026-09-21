@@ -1,67 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SLOYPOCHINA | Piss In The Wind Aesthetic</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-
-  <script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js"
-      }
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLOYPOCHINA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Слой плёночной зернистости (Noise Filter) -->
-  <div class="grain-overlay"></div>
+    <!-- Ваш интерфейс поверх 3D сцены -->
+    <div class="ui-container">
+        <div class="archive-tag">// PISS_IN_THE_WIND_ARCHIVE</div>
+        <h1 class="title">SLOYPOCHINA</h1>
+        <p class="description">
+            Цифровой шум, алый туман и отчуждение.<br>
+            Атмосфера Joji & Minecraft.
+        </p>
+        <button id="cameraBtn" class="btn">СМОТРЕТЬ ПРОЕКТЫ -></button>
+    </div>
 
-  <canvas id="bg-canvas"></canvas>
-
-  <div class="ui-container">
-    
-    <!-- СТРАНИЦА 1 -->
-    <section id="page-home" class="page">
-      <div class="tag">// PISS_IN_THE_WIND_ARCHIVE</div>
-      <h1 class="glitch-title">SLOYPOCHINA</h1>
-      <p class="description">
-        Цифровой шум, алый туман и отчуждение. Атмосфера Joji & Minecraft.
-      </p>
-      
-      <div class="nav-buttons">
-        <button id="btn-to-projects" class="retro-btn">СМОТРЕТЬ ПРОЕКТЫ -></button>
-      </div>
-    </section>
-
-    <!-- СТРАНИЦА 2 -->
-    <section id="page-projects" class="page hidden">
-      <button id="btn-to-home" class="retro-btn back-btn"><- НАЗАД В ТУМАН</button>
-      <h2 class="section-title">ИЗБРАННЫЕ РАБОТЫ</h2>
-      
-      <div class="projects-list">
-        <article class="project-card">
-          <h3>01. THREEJS_PORTFOLIO</h3>
-          <p>Экспериментальный 3D-сайт на Three.js в эстетике альбомов Joji.</p>
-        </article>
-        
-        <article class="project-card">
-          <h3>02. RED_FOG_EXPERIMENT</h3>
-          <p>Процедурный алый свет, частицы пепла и 3D-дерево в тумане.</p>
-        </article>
-      </div>
-    </section>
-
-  </div>
-
-  <script type="module" src="app.js"></script>
+    <!-- Подключаем основной скрипт -->
+    <script type="module" src="app.js"></script>
 </body>
 </html>
